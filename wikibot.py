@@ -42,7 +42,7 @@ def get_wiki_summary(topic):
         # Get the Wikipedia summary from the response
         print("successful response")
         data = response.json()
-        print(data)
+        #print(data)
         try:
             if not data["query"]["search"]:
                 print("wikipedia page not found")
@@ -60,7 +60,7 @@ def get_wiki_summary(topic):
             'explaintext': True}
         response = requests.get(queryapi,params=params)
         data = response.json()
-        print(data)
+        #print(data)
         page = next(iter(data['query']['pages'].values()))
         summary = page['extract'][:500]#design decision to limit to 1st 500 chars, because long text not supported by telegram
         return summary
